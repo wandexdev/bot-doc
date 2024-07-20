@@ -66,6 +66,16 @@ Prerequisites for the set up:
 - For the webhook url,insert the url pointing to your ngrok URL or any public URL where the bot is running.
 - Webhook secret,
 
+#### Step 2. Set the permissions:
+- Repository permissions: Read & write for Issues.
+- Subscribe to events: Choose Pull requests.
+
+#### Step 3. Installation of the GitHub App:
+- Install the app on your desired repositories.
+- Generate and Download Private Key:
+
+Download the private key and save it in your project directory. Update the .env file with the path to this private key.
+
 ### Step 2. Clone Repository
 On your local machine, clone the project
 ```bash
@@ -177,7 +187,7 @@ import ngrok from 'ngrok';
 - fs: Provides file system operations.
 - ngrok: Exposes local servers to the internet.
 
-### Step 5. Sort Environment Variables
+### Step 5. Environment Variables Set-up
 ```env
 PORT=3003
 WEBHOOK_SECRET=your_github_webhook_secret
@@ -205,11 +215,27 @@ npm run dev
 ```bash
 ngrok http 3003
 ```
+#### Section D: GitHub App Bot testing
+
+* Navigate to the repository you want to make contributions and fork it.
+* Clone the repository to your local machine.
+* Create a new branch,make changes,commit the changes and puush the   changes
+* Create a Pull Request in the repository where the GitHub App is installed. The bot should automatically start the deployment process.
+
+* Verify Deployment:
+
+   * Check the PR thread for a comment from the bot with the deployment status and URL.
+   * Access the deployment using the provided URL to verify that the container is running.
+
+* Close the PR: Closing the PR should trigger the cleanup process, removing the Docker container and associated resources.
+
 ## Collaboration Guide
 
 We welcome contributions from the community to improve **Alpha-Bot**! Here's how you can get involved:
 - Reporting Issues
 - Suggesting Features
+
+
 - Contributing Code
 >1. Fork the repository
 >
