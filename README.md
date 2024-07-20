@@ -1,16 +1,43 @@
-# HNG-DevOps-1(Alpha Bot) Documentation
+# HNG-DevOps-Team-One (Alpha Bot) Documentation
 
-## Overview
+## OVERVIEW
 
-In today's fast-paced development environment, efficient code review and deployment processes are paramount, optimizing processes workflow via automation is key. 
-This custom **Alpha bot**, a Node.js application, automates the process of building, deploying and merging pull requests (PRs). It leverages **Docker** for containerization in isolated environments, exposing deployed URL via **Ngrok**, clean up of containers and resources and provides comprehensive feedback on the deployment via comments. It is repository agnostic.
+In today's fast-paced development environment, efficient code review and deployment processes are paramount and optimizing these processes via automation is key. 
+**Alpha bot**, a Node.js application, automates the process of building, deploying and merging Pull Requests (PRs). It leverages **Docker** for containerization in isolated environments, exposing the deployed instance as a preview link via **Ngrok**. This bot also cleans up containers and resources and provides feedback on the deployment via comments on the Pull Request.<br>
+Kindly note that it is repository agnostic as long as the repository is dockerized.
 
+For DevOps engineers, such a setup offers an: <br>
+- **Effortless Testing of New Features**: Automatically deploy each new pull request into its Docker container, providing a pristine environment that mirrors production.
+
+- **Enhanced Code Review Process**: Enable reviewers to interact with live, deployed versions of the code changes, facilitating thorough testing and validation.
+
+- **Optimized Resource Management System**: Automate the cleanup of Docker containers upon pull request closure, ensuring optimal use of infrastructure without manual intervention.
+
+# Project Team Contributors
+
+<table>
+<tr><th> Name </th><th> LinkedIn </th><tr>
+<tr><th> John Doe </th><th> link.com </th><tr>
+<tr><th> Jane Doe </th><th> link.com </th><tr>
+</table>
+
+<a id="table-contents"></a>
+## Table of Contents
+* [Prerequisites](#prerequisites)
+* [Architecture](#architecture)
+* [Folder Structure](#folder-structure)
+* [Getting Started](#getting-started)
+  * [Section A](#section-a)
+  * [Section B](#section-b)
+
+<a id="architecture"></a>
 ## Architecture
 ![Bot Architechture](images/alpha-bot.png)
 The application listens for pull request events (`opened`, `reopened`, `synchronize`, `closed`) and performs the following actions:
 - **Opened/Reopened/Synchronize**: Triggers a deployment of the pull request code using Docker and adds a comment to the pull request.
 - **Closed**: Removes the deployed Docker container and its associated resources, and adds a comment to the pull request
 
+<a id="folder-structure"></a>
 ## Folder Structure
 ```
 |--- services
@@ -32,8 +59,10 @@ The application listens for pull request events (`opened`, `reopened`, `synchron
 - Custom Domain name:
 - Error Handling??
 
+<a id="getting-started"></a>
 ## Getting Started
 
+<a id="section-a"></a>
 ### Section A: Alpha-Bot Usage
 Alpha-Bot is Repository agnostic, it works on any and every respository it is set up for as far as it revolves around containerization of the code.
 A few preresquities before running.
@@ -46,7 +75,7 @@ A few preresquities before running.
 - Next select the repository permissions it should have access to, it then reflects on the applications page
 ![permissions](images/realstepb)
 ![view](images/realstepc)
-
+[Back to Table of Contents](#toc)
 
 ### Section B: Alpha-Bot Testing
 
